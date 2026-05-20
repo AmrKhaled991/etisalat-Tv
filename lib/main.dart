@@ -12,8 +12,12 @@ import 'package:etisalatdemotv/core/platform/platform_service.dart';
 /// 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  //nooooooote
+  // if we use web we can bot use platform.isAndroid but this will 
+  // and we if i use web app will be landscape by defult
 
-  final isTV = await PlatformService.isTV();
+  // final isTV = await PlatformService.isTV();
   
-  runApp(App(isTV: isTV));
+  runApp(App(isTV: false));
+
 }
