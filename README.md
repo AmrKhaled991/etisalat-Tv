@@ -18,6 +18,16 @@ A Flutter video player built for **e& (Etisalat)** that runs on phones, tablets,
 
 ---
 
+## 🎥 Demo Videos
+
+| Platform | Demo |
+|----------|------|
+| iPhone / Android / Web / Android TV | [Watch Demo](https://drive.google.com/file/d/1eE6dR9pv5gKG8l-tleKi7Pu79HIR3RXz/view?usp=drive_link) |
+| iOS | [Watch Demo](https://drive.google.com/file/d/19Z_H2Q2IN2H1M2rIFvYi11_mBdu0qc8b/view?usp=drive_link) |
+| LG webOS | [Watch Demo](https://drive.google.com/file/d/1IsjlXWaRNNZKFTrN3t-9elNBWGu9mDGu/view?usp=sharing) |
+
+---
+
 ## 🌿 Branch Structure
 
 ```
@@ -99,6 +109,8 @@ Deploy using the `flutter-tizen` CLI:
 flutter-tizen run -d <tizen-device-id>
 flutter-tizen build tpk --release     # release package
 ```
+
+> ⚠️ **Apple Silicon limitation** — Tizen Studio (required to run Samsung TV targets) only supports **Intel (x86_64)** architecture. This project was developed on an **Apple M4** machine, which means the Tizen emulator and device runner could not be launched locally despite all configuration being fully in place in `pubspec.yaml`. All Tizen plugin overrides (`video_player_tizen`, `shared_preferences_tizen`) and the `tizen/` platform folder are committed and ready — the build will work on an Intel machine or CI environment with Tizen Studio installed.
 
 ---
 
