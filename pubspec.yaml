@@ -31,7 +31,9 @@ dependencies:
   flutter:
     sdk: flutter
   video_player: ^2.9.3
+  video_player_tizen: ^2.5.11
   shared_preferences: ^2.3.4
+  shared_preferences_tizen: ^2.1.2
   provider: ^6.1.2
 
 dev_dependencies:

@@ -8,12 +8,12 @@ import 'package:etisalatdemotv/core/platform/platform_service.dart';
 /// 2. Launches [App] with the result
 ///
 /// All other wiring (Provider, ViewModel) happens inside [App].
-/// 
-/// 
+///
+///
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   final isTV = await PlatformService.isTV();
-  
+
   runApp(App(isTV: isTV));
 }
