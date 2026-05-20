@@ -1,12 +1,10 @@
 import 'package:etisalatdemotv/core/utils/duration_formatter.dart';
 import 'package:etisalatdemotv/features/video/presentation/view/phone/widgets/horizontal_displaying.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 
 import 'package:etisalatdemotv/core/theme/app_theme.dart';
 import 'package:etisalatdemotv/features/video/presentation/controller/player_viewmodel.dart';
-import 'package:etisalatdemotv/core/widgets/phone_seek_bar.dart';
 
 /// Control overlay for mobile (phone) screens.
 ///
