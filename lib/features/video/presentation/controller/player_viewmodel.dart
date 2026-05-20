@@ -51,7 +51,7 @@ class PlayerViewModel extends ChangeNotifier {
 
   Future<void> initialize() async {
     try {
-      _controller = VideoPlayerController.asset('assets/video/test3.mp4');
+      _controller = VideoPlayerController.asset('assets/video/test4.mp4');
 
       await _controller.initialize();
 
@@ -92,6 +92,7 @@ class PlayerViewModel extends ChangeNotifier {
       _controller.play();
       _startHideTimer();
     }
+    notifyListeners();
   }
 
   Future<void> seekForward({int seconds = 10}) async {

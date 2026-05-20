@@ -19,7 +19,6 @@ class PhoneControls extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final vm = context.watch<PlayerViewModel>();
-
     return Stack(
       children: [
         // ─── Gesture areas + center play/pause ───
