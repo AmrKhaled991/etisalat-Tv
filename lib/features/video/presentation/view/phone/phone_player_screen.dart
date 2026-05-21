@@ -14,32 +14,10 @@ import 'package:etisalatdemotv/features/video/presentation/view/phone/widgets/vi
 /// - Tap video to toggle controls
 /// - Double-tap sides to seek ±10s
 /// - Auto-hide controls after 3s
-class PhonePlayerScreen extends StatefulWidget {
+class PhonePlayerScreen extends StatelessWidget {
   const PhonePlayerScreen({super.key});
 
-  @override
-  State<PhonePlayerScreen> createState() => _PhonePlayerScreenState();
-}
-
-class _PhonePlayerScreenState extends State<PhonePlayerScreen> {
   // @override
-  // void initState() {
-  //   super.initState();
-  //   SystemChrome.setPreferredOrientations([
-  //     DeviceOrientation.landscapeLeft,
-  //     DeviceOrientation.landscapeRight,
-  //   ]);
-  //   SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
-  //
-  // }
-
-  // @override
-  // void dispose() {
-  //   SystemChrome.setPreferredOrientations(DeviceOrientation.values);
-  //   SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
-  //   super.dispose();
-  // }
-
   @override
   Widget build(BuildContext context) {
     final vm = context.watch<PlayerViewModel>();
