@@ -13,7 +13,7 @@ import 'package:etisalatdemotv/core/platform/platform_service.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  final isTV = await PlatformService.isTV();
+  // final isTV = await PlatformService.isTV();
 
-  runApp(App(isTV: isTV));
+  runApp(App(isTV: true));
 }

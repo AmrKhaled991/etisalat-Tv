@@ -61,7 +61,7 @@ class PlayerViewModel extends ChangeNotifier {
         await _controller.seekTo(Duration(milliseconds: lastPos));
       }
 
-      await Future.delayed(const Duration(milliseconds: 5000));
+      // await Future.delayed(const Duration(milliseconds: 5000));
 
       _controller.addListener(_onVideoUpdate);
 
@@ -92,6 +92,7 @@ class PlayerViewModel extends ChangeNotifier {
       _controller.play();
       _startHideTimer();
     }
+    notifyListeners();
   }
 
   Future<void> seekForward({int seconds = 10}) async {
