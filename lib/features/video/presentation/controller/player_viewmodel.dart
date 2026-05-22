@@ -51,7 +51,7 @@ class PlayerViewModel extends ChangeNotifier {
 
   Future<void> initialize() async {
     try {
-      _controller = VideoPlayerController.asset('assets/video/test3.mp4');
+      _controller = VideoPlayerController.asset('assets/video/test4.mp4');
 
       await _controller.initialize();
 
@@ -61,7 +61,7 @@ class PlayerViewModel extends ChangeNotifier {
         await _controller.seekTo(Duration(milliseconds: lastPos));
       }
 
-      // await Future.delayed(const Duration(milliseconds: 5000));
+      await Future.delayed(const Duration(milliseconds: 5000));
 
       _controller.addListener(_onVideoUpdate);
 
