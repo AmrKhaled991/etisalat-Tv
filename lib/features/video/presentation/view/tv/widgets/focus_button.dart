@@ -25,6 +25,19 @@ class FocusButton extends StatefulWidget {
 
 class _FocusButtonState extends State<FocusButton> {
   bool _isFocused = false;
+  late final FocusNode _focusNode;
+
+  @override
+  void initState() {
+    super.initState();
+    _focusNode = FocusNode();
+  }
+
+  @override
+  void dispose() {
+    _focusNode.dispose();
+    super.dispose();
+  }
 
   void _onFocusChange(bool focused) {
     if (!mounted) return;
@@ -47,11 +60,15 @@ class _FocusButtonState extends State<FocusButton> {
       label: widget.semanticLabel,
       button: true,
       child: Focus(
+        focusNode: _focusNode,
         autofocus: widget.autofocus,
         onFocusChange: _onFocusChange,
         onKeyEvent: _onKey,
         child: GestureDetector(
-          onTap: widget.onPressed,
+          onTap: () {
+            _focusNode.requestFocus();
+            widget.onPressed();
+          },
           child: AnimatedScale(
             duration: const Duration(milliseconds: 120),
             curve: Curves.easeOutCubic,

@@ -19,9 +19,17 @@ class TvSeekBar extends StatefulWidget {
 
 class _TvSeekBarState extends State<TvSeekBar> {
   bool _isFocused = false;
+  late final FocusNode _focusNode;
+
+  @override
+  void initState() {
+    super.initState();
+    _focusNode = FocusNode();
+  }
 
   @override
   void dispose() {
+    _focusNode.dispose();
     super.dispose();
   }
 
@@ -50,6 +58,7 @@ class _TvSeekBarState extends State<TvSeekBar> {
         : 0.0;
 
     return Focus(
+      focusNode: _focusNode,
       onFocusChange: (focused) {
         setState(() {
           _isFocused = focused;
@@ -57,59 +66,65 @@ class _TvSeekBarState extends State<TvSeekBar> {
         if (focused) vm.showControls();
       },
       onKeyEvent: _onKey,
-      child: AnimatedContainer(
-        duration: const Duration(milliseconds: 200),
-        padding: EdgeInsets.symmetric(
-          horizontal: AppTheme.controlsPadding(isTV: true),
-          vertical: 8,
-        ),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(12),
-          border: Border.all(
-            color: _isFocused ? AppTheme.focusGlow : Colors.transparent,
-            width: 2,
+      child: GestureDetector(
+        behavior: HitTestBehavior.opaque,
+        onTap: () {
+          _focusNode.requestFocus();
+        },
+        child: AnimatedContainer(
+          duration: const Duration(milliseconds: 200),
+          padding: EdgeInsets.symmetric(
+            horizontal: AppTheme.controlsPadding(isTV: true),
+            vertical: 8,
           ),
-          color: _isFocused
-              ? AppTheme.surfaceVariant.withValues(alpha: 0.6)
-              : Colors.transparent,
-        ),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Row(
-              children: [
-                Text(
-                  DurationFormatter.format(vm.position),
-                  style: TextStyle(
-                    color: AppTheme.onSurface,
-                    fontSize: AppTheme.timeFontSize(isTV: true),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(12),
+            border: Border.all(
+              color: _isFocused ? AppTheme.focusGlow : Colors.transparent,
+              width: 2,
+            ),
+            color: _isFocused
+                ? AppTheme.surfaceVariant.withValues(alpha: 0.6)
+                : Colors.transparent,
+          ),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Row(
+                children: [
+                  Text(
+                    DurationFormatter.format(vm.position),
+                    style: TextStyle(
+                      color: AppTheme.onSurface,
+                      fontSize: AppTheme.timeFontSize(isTV: true),
+                    ),
                   ),
-                ),
-                const SizedBox(width: 12),
-                Expanded(
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(4),
-                    child: LinearProgressIndicator(
-                      value: progress.clamp(0.0, 1.0),
-                      minHeight: 8,
-                      backgroundColor: AppTheme.seekBarTrack,
-                      valueColor: const AlwaysStoppedAnimation<Color>(
-                        AppTheme.primary,
+                  const SizedBox(width: 12),
+                  Expanded(
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(4),
+                      child: LinearProgressIndicator(
+                        value: progress.clamp(0.0, 1.0),
+                        minHeight: 8,
+                        backgroundColor: AppTheme.seekBarTrack,
+                        valueColor: const AlwaysStoppedAnimation<Color>(
+                          AppTheme.primary,
+                        ),
                       ),
                     ),
                   ),
-                ),
-                const SizedBox(width: 12),
-                Text(
-                  DurationFormatter.format(vm.duration),
-                  style: TextStyle(
-                    color: AppTheme.onSurfaceVariant,
-                    fontSize: AppTheme.timeFontSize(isTV: true),
+                  const SizedBox(width: 12),
+                  Text(
+                    DurationFormatter.format(vm.duration),
+                    style: TextStyle(
+                      color: AppTheme.onSurfaceVariant,
+                      fontSize: AppTheme.timeFontSize(isTV: true),
+                    ),
                   ),
-                ),
-              ],
-            ),
-          ],
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );
