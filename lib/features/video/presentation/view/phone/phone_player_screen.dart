@@ -1,12 +1,12 @@
 import 'package:etisalatdemotv/core/utils/duration_formatter.dart';
-import 'package:etisalatdemotv/core/widgets/phone_seek_bar.dart';
+import 'package:etisalatdemotv/features/video/presentation/view/phone/widgets/phone_seek_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 
 import 'package:etisalatdemotv/features/video/presentation/controller/player_viewmodel.dart';
 import 'package:etisalatdemotv/features/video/presentation/view/phone/widgets/phone_controls.dart';
-import 'package:etisalatdemotv/features/video/presentation/view/phone/widgets/video_view.dart';
+import 'package:etisalatdemotv/core/widgets/video_view.dart';
 
 /// Player screen optimized for mobile (Android phone & iOS).
 ///
