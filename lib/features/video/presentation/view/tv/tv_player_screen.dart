@@ -3,7 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:etisalatdemotv/features/video/presentation/controller/player_viewmodel.dart';
 import 'package:etisalatdemotv/features/video/presentation/view/tv/widgets/tv_controls.dart';
-import 'package:etisalatdemotv/features/video/presentation/view/phone/widgets/video_view.dart';
+import 'package:etisalatdemotv/core/widgets/video_view.dart';
 
 /// Player screen optimized for Android TV and web keyboard navigation.
 ///
