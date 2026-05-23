@@ -6,7 +6,7 @@ import 'package:provider/provider.dart';
 
 import 'package:etisalatdemotv/core/theme/app_theme.dart';
 import 'package:etisalatdemotv/features/video/presentation/controller/player_viewmodel.dart';
-import 'package:etisalatdemotv/core/widgets/phone_seek_bar.dart';
+import 'package:etisalatdemotv/features/video/presentation/view/phone/widgets/phone_seek_bar.dart';
 
 /// Control overlay for mobile (phone) screens.
 ///
