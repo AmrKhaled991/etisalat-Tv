@@ -19,7 +19,7 @@ class PlatformService {
     try {
       _isTV = await _channel.invokeMethod<bool>('isTV') ?? false;
     } on PlatformException {
-      _isTV = false;
+      _isTV = true;
     }
 
     return _isTV!;

@@ -14,6 +14,6 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   final isTV = await PlatformService.isTV();
-  
-  runApp(App(isTV: isTV));
+  //for tv os 
+  runApp(App(isTV: true));
 }
